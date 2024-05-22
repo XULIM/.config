@@ -33,7 +33,7 @@ Window manager with minimal config changes from default.
 - uses wofi for menu, alacritty for terminal.
 - conforms with the alacrity theme.
 Example sway-bar config with brightness, sound, datetime, and battery level.
-``` shell
+``` bash
 bt=$(acpi | grep -oe "[0-9][0-9]%')
 dt=$(date +'%Y-%m-%d %X')
 lt=$(light)
