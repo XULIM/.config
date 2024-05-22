@@ -32,6 +32,8 @@ syntax errors.
 Window manager with minimal config changes from default.
 - uses wofi for menu, alacritty for terminal.
 - conforms with the alacrity theme.  
+
+
 Example sway-bar config that displays brightness, sound, datetime, and battery level.  
 (for .config/sway/scripts/swaybar.sh, there are better ways to display these info but I am too lazy.)  
 ``` bash
