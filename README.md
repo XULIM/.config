@@ -34,8 +34,8 @@ Window manager with minimal config changes from default.
 - conforms with the alacrity theme.  
 
 
-Example sway-bar config that displays brightness, sound, datetime, and battery level.  
-(for .config/sway/scripts/swaybar.sh, there are better ways to display these info but I am too lazy.)  
+Example sway-bar config (in sway/scripts/swaybar.sh) that displays brightness, sound, datetime, and battery level.  
+(there are better ways to display these info but I am too lazy.)  
 ``` bash
 bt=$(acpi | grep -oe "[0-9][0-9]%') # battery percentage
 dt=$(date +'%Y-%m-%d %X') # date in YYYY-MM-DD HH:MM:SS
@@ -44,7 +44,7 @@ sn=$(amixer sget Master | grep -oe '[0-9][0-9]%' -m 1) # the volume of Master ou
 echo "${lt}   ${sn}   ${dt}   ${bt} "
 ```
 The above config requires: acpi, light, amixer (I think date is built-in).  
-For UI elements, search on nerd-fonts cheatsheet.
+For UI elements, search on (nerdfonts cheatsheet)[https://www.nerdfonts.com/cheat-sheet].
 
 ### tmux
 Minimal config but with more intuitive keybinding.
