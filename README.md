@@ -44,7 +44,7 @@ sn=$(amixer sget Master | grep -oe '[0-9][0-9]%' -m 1) # the volume of Master ou
 echo "${lt}   ${sn}   ${dt}   ${bt} "
 ```
 The above config requires: acpi, light, amixer (I think date is built-in).  
-For UI elements, search on (nerdfonts cheatsheet)[https://www.nerdfonts.com/cheat-sheet].
+For UI elements, search on [nerdfonts cheatsheet](https://www.nerdfonts.com/cheat-sheet).
 
 ### tmux
 Minimal config but with more intuitive keybinding.
