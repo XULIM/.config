@@ -31,15 +31,17 @@ syntax errors.
 ### sway
 Window manager with minimal config changes from default.
 - uses wofi for menu, alacritty for terminal.
-- conforms with the alacrity theme.
-Example sway-bar config with brightness, sound, datetime, and battery level.
+- conforms with the alacrity theme.  
+Example sway-bar config that displays brightness, sound, datetime, and battery level.  
+(for .config/sway/scripts/swaybar.sh, there are better ways to display these info but I am too lazy.)  
 ``` bash
-bt=$(acpi | grep -oe "[0-9][0-9]%')
-dt=$(date +'%Y-%m-%d %X')
-lt=$(light)
-sn=$(amixer sget Master | grep -oe '[0-9][0-9]%' -m 1)
+bt=$(acpi | grep -oe "[0-9][0-9]%') # battery percentage
+dt=$(date +'%Y-%m-%d %X') # date in YYYY-MM-DD HH:MM:SS
+lt=$(light) # the brightness level in float
+sn=$(amixer sget Master | grep -oe '[0-9][0-9]%' -m 1) # the volume of Master output.
 echo "${lt}   ${sn}   ${dt}   ${bt} "
 ```
+The above config requires: acpi, light, amixer (I think date is built-in).  
 For UI elements, search on nerd-fonts cheatsheet.
 
 ### tmux
