@@ -7,4 +7,5 @@ if status is-interactive
     alias vim="nvim"
     alias vi="nvim"
     alias vimdiff="nvim -d"
+    alias g="git"
 end
