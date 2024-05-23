@@ -1,5 +1,6 @@
 -- only contains lazy and plugin config.
 require("config.remap")
+require("config.autocmd")
 
 -- lazy config
 local lazypath = vim.fn.stdpath("data") .. "lazy/lazy.nvim"
