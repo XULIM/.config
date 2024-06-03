@@ -37,10 +37,10 @@ Window manager with minimal config changes from default.
 Example sway-bar config (in sway/scripts/swaybar.sh) that displays brightness, sound, datetime, and battery level.  
 (there are better ways to display these info but I am too lazy.)  
 ``` bash
-bt=$(acpi | grep -oe "[0-9]\{1,2\}%') # battery percentage
+bt=$(acpi | grep -oe "[0-9]\{1,3\}%') # battery percentage
 dt=$(date +'%Y-%m-%d %X') # date in YYYY-MM-DD HH:MM:SS
 lt=$(light) # the brightness level in float
-sn=$(amixer sget Master | grep -oe '[0-9]\{1,2\}%' -m 1) # the volume of Master output.
+sn=$(amixer sget Master | grep -oe '[0-9]\{1,3\}%' -m 1) # the volume of Master output.
 echo "${lt}   ${sn}   ${dt}   ${bt} "
 ```
 The above config requires: acpi, light, amixer (I think date is built-in).  
