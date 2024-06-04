@@ -1,6 +1,11 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>te", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("i", '"', '""<left>')
+vim.keymap.set("i", "'", "''<left>")
+vim.keymap.set("i", "(", "()<left>")
+vim.keymap.set("i", "[", "[]<left>")
+vim.keymap.set("i", "{", "{}<left>")
 
 -- nvim-dap config
 vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
