@@ -5,36 +5,36 @@ require("config.autocmd")
 -- lazy config
 local lazypath = vim.fn.stdpath("data") .. "lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable",
-		lazypath,
-	})
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable",
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	spec = "config.lazy",
-	change_detection = {notify = true}
+    spec = "config.lazy",
+    change_detection = { notify = true }
 })
 
 -- mason
 require("mason").setup()
 require("mason-lspconfig").setup({
-	ensure_installed = { -- other installed: cpplint
-		"lua_ls",
-		"clangd",
-		"bashls",
-		"marksman",
-		"ruff",
-		"pyright",
-		"eslint",
-		"rust_analyzer",
-		"gopls",
-	},
+    ensure_installed = { -- other installed: cpplint
+        "lua_ls",
+        "clangd",
+        "bashls",
+        "marksman",
+        "ruff",
+        "pyright",
+        "eslint",
+        "rust_analyzer",
+        "gopls",
+    },
 })
 
 -- lspconfig
@@ -49,7 +49,7 @@ lspconf.lua_ls.setup({
     settings = {
         Lua = {
             diagnostics = {
-                globals = {"vim", "it",}
+                globals = { "vim", "it", }
             },
         },
     },
@@ -65,29 +65,29 @@ local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local defaults = require("cmp.config.default")()
 cmp.setup({
-	snippet = {
-		expand = function(args)
-			require("luasnip").lsp_expand(args.body)
-		end
-	},
-	window = {
-		completion = cmp.config.window.bordered(),
-		documentation = cmp.config.window.bordered()
-	},
-	mapping = cmp.mapping.preset.insert({
-		['<C-Space>'] = cmp.mapping.complete(),
-        ['<CR>'] = cmp.mapping.confirm({select = true}),
-        ['<S-CR>'] = cmp.mapping.confirm({ behavior=cmp.ConfirmBehavior.Replace, select = true  }),
-		['<C-CR>'] = function(fallback)
+    snippet = {
+        expand = function(args)
+            require("luasnip").lsp_expand(args.body)
+        end
+    },
+    window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered()
+    },
+    mapping = cmp.mapping.preset.insert({
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ['<S-CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+        ['<C-CR>'] = function(fallback)
             cmp.abort()
             fallback()
         end,
-		['<C-y>'] = cmp.mapping.confirm({ select = true }),
-		['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-		['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+        ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+        ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
-	}),
+    }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
@@ -108,24 +108,23 @@ require("luasnip.loaders.from_vscode").lazy_load()
 
 -- colorscheme
 require("kanagawa").setup({
-	undercurl = true,
-	commentStyle = { italic = false },
-	keywordStyle = { italic = false, bold = true },
-	statementStyle = { bold = false },
-	transparent = true,
-	dimInactive = true,
-	theme = "dragon",
-	background = { dark = "dragon", light = "lotus" },
+    undercurl = true,
+    commentStyle = { italic = false },
+    keywordStyle = { italic = false, bold = true },
+    statementStyle = { bold = false },
+    transparent = true,
+    dimInactive = true,
+    theme = "dragon",
+    background = { dark = "dragon", light = "lotus" },
 })
 
 require("solarized-osaka").setup({
-	transparent = true,
-	on_colors = function(colors)
-		colors.red = "#97444B"
-	end
+    transparent = true,
+    on_colors = function(colors)
+        colors.red = "#97444B"
+    end
 })
 vim.cmd("colorscheme kanagawa")
 
 -- colorizer
 require("colorizer").setup()
-
