@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>te", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
-vim.keymap.set("n", "<F3>", ":noh<CR>")
+vim.keymap.set("n", "<leader>nh", ":noh<CR>")
 vim.keymap.set("i", '"', '""<left>')
 vim.keymap.set("i", "'", "''<left>")
 vim.keymap.set("i", "(", "()<left>")
