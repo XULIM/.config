@@ -34,6 +34,7 @@ require("mason-lspconfig").setup({
         "eslint",
         "rust_analyzer",
         "gopls",
+        "zls",
     },
 })
 
@@ -56,6 +57,7 @@ lspconf.lua_ls.setup({
 })
 lspconf.rust_analyzer.setup({})
 lspconf.gopls.setup({})
+lspconf.zls.setup({})
 
 -- notification UI
 require("fidget").setup()
