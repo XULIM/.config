@@ -4,7 +4,6 @@ if status is-interactive
     alias c="wl-copy"
     alias v="wl-paste"
     set XDG_CONFIG_HOME "~/.config"
-    alias vim="nvim"
     alias vi="nvim"
     alias vimdiff="nvim -d"
     alias g="git"
