@@ -44,7 +44,7 @@ lspconf.bashls.setup({})
 lspconf.clangd.setup({})
 lspconf.marksman.setup({})
 lspconf.pyright.setup({})
-lspconf.ruff.setup({})
+-- lspconf.ruff.setup({})
 lspconf.eslint.setup({})
 lspconf.lua_ls.setup({
     settings = {
@@ -67,6 +67,16 @@ local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local defaults = require("cmp.config.default")()
 cmp.setup({
+    enabled = function()
+        -- disable completion in comments
+        local context = require("cmp.config.context")
+        if vim.api.nvim_get_mode().mode == 'c' then
+            return true
+        else
+            return not context.in_treesitter_capture("comment")
+                and not context.in_syntax_group("Comment")
+        end
+    end,
     snippet = {
         expand = function(args)
             require("luasnip").lsp_expand(args.body)
