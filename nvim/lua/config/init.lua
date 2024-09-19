@@ -2,6 +2,9 @@
 require("config.remap")
 require("config.autocmd")
 
+-- disable diagnostics by default (<leader>d to toggle)
+vim.diagnostic.enable(false)
+
 -- lazy config
 local lazypath = vim.fn.stdpath("data") .. "lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -67,6 +70,9 @@ local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local defaults = require("cmp.config.default")()
 cmp.setup({
+    completion = {
+        autocomplete = false
+    },
     enabled = function()
         -- disable completion in comments
         local context = require("cmp.config.context")
@@ -83,8 +89,8 @@ cmp.setup({
         end
     },
     window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered()
+        -- completion = cmp.config.window.bordered(),
+        -- documentation = cmp.config.window.bordered()
     },
     mapping = cmp.mapping.preset.insert({
         ['<C-Space>'] = cmp.mapping.complete(),

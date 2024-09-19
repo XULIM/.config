@@ -2,7 +2,8 @@ vim.g.mapleader = " "
 
 -- misc
 vim.keymap.set("n", "<leader>te", vim.cmd.Ex)
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>f", ":find ")
+vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>nh", ":noh<CR>")
 vim.keymap.set("n", "<leader>d", ":lua vim.diagnostic.enable(not vim.diagnostic.is_enabled())<CR>")
 
