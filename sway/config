@@ -18,9 +18,16 @@ set $menu wofi --show drun
 
 ### Output configuration
 
+output DP-1 {
+    background ~/wallpaper/fish_2.jpg fill
+    resolution 1920x1080
+    pos 0 0
+}
+
 output eDP-1 {
 	background ~/wallpaper/fish_2.jpg fill
 	resolution 2160x1440
+    pos 1920 0
 }
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -28,10 +35,10 @@ output eDP-1 {
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -195,6 +202,15 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+set $tx #ffffff
+set $bg #181616
+set $black #0d0c0c
+set $fg-green #87a987
+set $fg-blue #8ba4b0
+
+# client.<class> border background text [<indicator> [<child_border>]]
+client.focused $fg-green $fg-green $black
+
 # sway-bar (man 5 sway-bar)
 bar {
     position top
@@ -202,10 +218,10 @@ bar {
     status_command while ~/.config/sway/scripts/swaybar.sh; do sleep 1; done
 
     colors {
-        statusline #ffffff
-        background #181616
-	    focused_workspace #87a987 #87a987 #ffffff
-	    inactive_workspace #181616 #181616 #5c5c5c
+        statusline $tx
+        background $bg
+	    focused_workspace $fg-blue $fg-blue $tx
+	    inactive_workspace $bg $bg #5c5c5c
     }
 
 }
