@@ -7,6 +7,13 @@ vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>nh", ":noh<CR>")
 vim.keymap.set("n", "<leader>d", ":lua vim.diagnostic.enable(not vim.diagnostic.is_enabled())<CR>")
 
+-- compilation
+vim.keymap.set("n", "<leader>c", ":Comp<CR>")
+
+-- terminal
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+vim.keymap.set("n", "<C-t>", ":Tn<CR>")
+
 -- nvim-dap config
 vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
 vim.keymap.set('n', '<F10>', function() require('dap').step_over() end)

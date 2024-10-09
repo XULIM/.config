@@ -1,6 +1,7 @@
 -- only contains lazy and plugin config.
 require("config.remap")
 require("config.autocmd")
+require("config.commands")
 
 -- disable diagnostics by default (<leader>d to toggle)
 vim.diagnostic.enable(false)
@@ -112,13 +113,6 @@ cmp.setup({
         { name = 'path' },
     }, { name = 'buffer' }),
     sorting = defaults.sorting,
-})
-
--- commenter
-require("nvim_comment").setup({
-    comment_empty = false,
-    line_mapping = "<leader>cl",
-    operator_mapping = "<leader>c",
 })
 
 -- luasnip

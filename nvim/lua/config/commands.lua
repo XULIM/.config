@@ -1,0 +1,6 @@
+vim.api.nvim_create_user_command("Tn", ":belowright split | term", {})
+vim.api.nvim_create_user_command("Comp", function()
+    local comp_cmd = vim.fn.input("Compile command: ")
+    vim.cmd('new out | r ! '..comp_cmd)
+end, {})
+vim.api.nvim_create_user_command("C", ":Comp", {})
